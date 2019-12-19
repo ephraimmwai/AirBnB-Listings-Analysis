@@ -1,18 +1,38 @@
-# AirBnB Listings Analysis
+# AirBnB Listings Analysis & Pricing ML Deployment
+![alt text](https://github.com/ephraimmwai/AirBnB-Listings-Analysis/blob/master/webapp/predict%20price/static/vendor/img/Capture.PNG "Web app Image")
 
-### Introduction
-This project is an analysis of the latest scrapped AirBnB listings as at ```15 Sept 2019```.
-### Prerequites
-- Python 3.7.1
-- Jupyter Notebooks
-- RAM 16GB with good processor
+Check out the corresponding medium blog post [https://towardsdatascience.com/how-to-easily-deploy-machine-learning-models-using-flask-b95af8fe34d4](https://towardsdatascience.com/how-to-easily-deploy-machine-learning-models-using-flask-b95af8fe34d4).
 
-### Project Motivation
+### Run the deployed app
+[Deployed - Heroku App](https://predict-airbnb-listing-price01.herokuapp.com/)
+## Environment and tools
+1. scikit-learn
+2. pandas
+3. numpy
+4. flask
 
-### File description
+## Installation
 
-```gather_date.html``` - This file shows the steps taken to programmatically download the data
+Clone the repository[https://towardsdatascience.com/how-to-easily-deploy-machine-learning-models-using-flask-b95af8fe34d4](https://github.com/ephraimmwai/AirBnB-Listings-Analysis).
+Navigate to ```predict_price``` folder
+Run the below scripts
 
-```analyse_listings.ipynb``` - Data assessment, data cleaning, and visualization
+`python model.py`
 
-```predict.html``` - Price prediction model for listings
+`python app.py`
+
+Open the below URL on your browser ```http://127.0.0.1:5000/```
+
+## Citing
+
+```
+@misc{Ephraim Mwai:2019,
+  Author = {Ephraim Mwai},
+  Title = {AirBnB Listings Analysis},
+  Year = {2019},
+  Publisher = {GitHub},
+  Journal = {GitHub repository},
+  Howpublished = {\url{https://github.com/ephraimmwai/AirBnB-Listings-Analysis}}
+}
+```
+
