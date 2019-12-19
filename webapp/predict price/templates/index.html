@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>AirBnB Listing Price Prediction</title>
+
+  <!-- Bootstrap core CSS -->
+
+  <!-- Custom fonts for this template -->
+  <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">  
+  <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}">
+  <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='vendor/simple-line-icons/css/simple-line-icons.css') }}">
+  <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='vendor/css/landing-page.css') }}">
+  <!-- <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/mainpage.css') }}"> -->
+
+  <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"> -->
+  <!-- <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly-basic.js"></script>
+
+  <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  <!-- Custom styles for this template -->
+  <!-- <link href="vendor/css/landing-page.css" rel="stylesheet"> -->
+
+</head>
+
+<body>
+  <!-- Call to Action -->
+  <section class="call-to-action text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h2 class="mb-4">AirBnB Listing Price Prediction </h2>
+          <p>London, UK</p>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+     <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict_price')}}"method="post">
+          <div class="form-row">
+            <div class="col-6 mb-2 mb-md-0">
+              <div class="form-group">
+                <input type="number" name="accommodates" class="form-control form-control-md" placeholder="Accommodates" required="required" />
+              </div>
+              <div class="form-group">
+                <input type="number" name="bathrooms" class="form-control form-control-md"placeholder="Bathrooms" required="required" />
+              </div>
+              <div class="form-group">
+                <input type="number" name="bedrooms" class="form-control form-control-md"placeholder="No of bedrooms" required="required" />
+              </div>
+              <div class="form-group">
+                <input type="number" name="beds" class="form-control form-control-md"placeholder="No of beds" required="required" />
+              </div>
+              <div class="form-group">
+                <select name="cancellation_policy" class="form-control form-control-md" placeholder="cancellation policy">
+                  <option>Select cancellation policy</option>
+                  <option value="moderate">Moderate</option>
+                  <option value="strict">Strict</option>
+                  <option value="strict_14_with_grace_period">Strict 14 with grace period</option>
+                  <option value="super_strict_30">Super strict 30</option>
+                  <option value="super_strict_60">Super strict 60</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <input type="number" name="extra_people" class="form-control form-control-md" placeholder="No of extra people" required="required" />
+              </div>
+              <div class="form-group">
+                <input type="number" name="guests_included" class="form-control form-control-md" placeholder="No of guests included" required="required" />
+              </div>
+            </div>
+
+            <div class="col-6 mb-2 mb-md-0">
+              <div class="form-group">
+                <input type="number" name="host_listings_count" class="form-control form-control-md" placeholder="No of host listings" required="required" />
+              </div>
+              <div class="form-group">
+                <select name="instant_bookable" class="form-control form-control-md" placeholder="instant_bookable">
+                  <option>Instant bookable?</option>
+                  <option value="t">Yes</option>
+                  <option value="f">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <input type="number" name="maximum_nights" class="form-control form-control-md" placeholder="No of maximum nights" required="required" />
+              </div>
+              <div class="form-group">
+                <input type="number" name="minimum_nights" class="form-control form-control-md" placeholder="No of minimum nights" required="required" />
+              </div>
+              <div class="form-group">
+                <select name="require_guest_phone_verification_t" class="form-control form-control-md" placeholder="require_guest_phone_verification_t">
+                  <option>Do you require guest phone verification?</option>
+                  <option value="t">Yes</option>
+                  <option value="f">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select name="room_type" class="form-control form-control-md" placeholder="room_type">
+                  <option>Select room type</option>
+                  <option value="Private room">Private Room</option>
+                  <option value="Shared room">Shared Room</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <button type="submit" class="btn btn-block btn-lg btn-primary">Predict Listing Price</button>
+            </div>
+          </div>
+        </form>
+        </div>
+
+        <div class="col-xl-9 mx-auto">          
+          <h2>
+            {{ prediction_text }}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <p class="text-muted small mb-4 mb-lg-0">&copy; AirBnB Listing Price Prediction  2019. All Rights Reserved.</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="https://www.linkedin.com/in/ephraimwaithaka/" target="_blank">
+                <i class="fab fa-linkedin fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="https://github.com/ephraimmwai" target="_blank">
+                <i class="fab fa-github fa-2x fa-fw"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+</body>
+
+</html>
+
