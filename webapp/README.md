@@ -1,8 +1,10 @@
-# Machine Learning Deployment Tutorials
-Sample end to end projects from data collection to putting models into production.
+# AirBnB Listings Analysis & Pricing ML Deployment
+![alt text](https://github.com/ephraimmwai/AirBnB-Listings-Analysis/blob/master/webapp/predict%20price/static/vendor/img/Capture.PNG "Web app Image")
 
 Check out the corresponding medium blog post [https://towardsdatascience.com/how-to-easily-deploy-machine-learning-models-using-flask-b95af8fe34d4](https://towardsdatascience.com/how-to-easily-deploy-machine-learning-models-using-flask-b95af8fe34d4).
 
+### Run the deployed app
+[Deployed - Heroku App](https://predict-airbnb-listing-price01.herokuapp.com/)
 ## Environment and tools
 1. scikit-learn
 2. pandas
@@ -11,24 +13,26 @@ Check out the corresponding medium blog post [https://towardsdatascience.com/how
 
 ## Installation
 
-`pip install scikit-learn pandas numpy flask`
+Clone the repository[https://towardsdatascience.com/how-to-easily-deploy-machine-learning-models-using-flask-b95af8fe34d4](https://github.com/ephraimmwai/AirBnB-Listings-Analysis).
+Navigate to ```predict_price``` folder
+Run the below scripts
 
 `python model.py`
 
 `python app.py`
 
-![Logo](i1.png)
+Open the below URL on your browser ```http://127.0.0.1:5000/```
 
 ## Citing
 
 ```
-@misc{Abhinav:2019,
-  Author = {Abhinav Sagar},
-  Title = {Machine-Learning-Deployment-Tutorials},
+@misc{Ephraim Mwai:2019,
+  Author = {Ephraim Mwai},
+  Title = {AirBnB Listings Analysis},
   Year = {2019},
   Publisher = {GitHub},
   Journal = {GitHub repository},
-  Howpublished = {\url{https://github.com/abhinavsagar/Machine-Learning-Deployment-Tutorials}}
+  Howpublished = {\url{https://github.com/ephraimmwai/AirBnB-Listings-Analysis}}
 }
 ```
 

@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
 import pickle
+import os
 
 app = Flask(__name__)
 model = pickle.load(open('price_model.pkl', 'rb'))
@@ -73,5 +74,9 @@ def results():
     output = prediction[0]
     return jsonify(output)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)
+if __name__ == '__main__':
+    # Bind to PORT if defined, otherwise default to 5000.
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
