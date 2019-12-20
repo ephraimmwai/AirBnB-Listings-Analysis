@@ -13,15 +13,16 @@ Check out the corresponding medium blog post [https://medium.com/@ephraim.mwai/w
 
 ## Installation
 
-Clone the repository[https://towardsdatascience.com/how-to-easily-deploy-machine-learning-models-using-flask-b95af8fe34d4](https://github.com/ephraimmwai/AirBnB-Listings-Analysis).
-Navigate to ```predict_price``` folder
-Run the below scripts
+1. Clone the repository [https://towardsdatascience.com/how-to-easily-deploy-machine-learning-models-using-flask-b95af8fe34d4](https://github.com/ephraimmwai/AirBnB-Listings-Analysis).
+2. Navigate to ```predict_price``` folder
 
-`python model.py`
+3. Run the below scripts
 
-`python app.py`
+- `python model.py`
 
-Open the below URL on your browser ```http://127.0.0.1:5000/```
+- `python app.py`
+
+4. Open the below URL on your browser ```http://127.0.0.1:5000/```
 
 ## Citing
 
