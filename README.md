@@ -3,7 +3,7 @@
 
 Check out the corresponding medium blog post [https://medium.com/@ephraim.mwai/what-to-consider-when-listing-your-extra-space-on-airbnb-4cb4aee9d3e3](https://medium.com/@ephraim.mwai/what-to-consider-when-listing-your-extra-space-on-airbnb-4cb4aee9d3e3).
 
-### Run the deployed app
+### View the deployed app
 [Deployed - Heroku App ](https://predict-airbnb-listing-price01.herokuapp.com/)
 ## Environment and tools
 1. scikit-learn
@@ -13,7 +13,7 @@ Check out the corresponding medium blog post [https://medium.com/@ephraim.mwai/w
 
 ## Installation
 
-1. Clone the repository [https://towardsdatascience.com/how-to-easily-deploy-machine-learning-models-using-flask-b95af8fe34d4](https://github.com/ephraimmwai/AirBnB-Listings-Analysis).
+1. Clone the [repository](https://github.com/ephraimmwai/AirBnB-Listings-Analysis).
 2. Navigate to ```predict_price``` folder
 
 3. Run the below scripts
